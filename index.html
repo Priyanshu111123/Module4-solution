@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting GUI</title>
+    <style>
+        /* Center the content */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* Style the input and button */
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="name">Enter your name: </label>
+        <input type="text" id="name" placeholder="Your name">
+        <button onclick="processName()">Submit</button>
+        <p id="greeting"></p>
+    </div>
+
+    <script src="library1.js"></script>
+    <script src="library2.js"></script>
+    <script>
+        function processName() {
+            // Get the user input
+            var name = document.getElementById("name").value.trim();
+
+            // Check if the input is empty
+            if (name === "") {
+                alert("Please enter a name.");
+                return;
+            }
+
+            // Determine the greeting based on the first letter of the name
+            var greeting;
+            if (name.charAt(0).toLowerCase() === 'j') {
+                greeting = byeSpeaker.speak(name);
+            } else {
+                greeting = helloSpeaker.speak(name);
+            }
+
+            // Display the greeting
+            document.getElementById("greeting").textContent = greeting;
+        }
+    </script>
+</body>
+</html>
